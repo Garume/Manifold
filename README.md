@@ -150,25 +150,36 @@ Static method operations do not require DI registration unless they explicitly r
 
 ## Attribute Model
 
-The key attributes are:
+The main attributes are:
 
-- `[Operation("operation.id")]`
-- `[CliCommand("group", "verb")]`
-- `[McpTool("tool_name")]`
-- `[Argument(position)]`
-- `[Option("name")]`
-- `[Alias(...)]`
-- `[CliName("...")]`
-- `[McpName("...")]`
-- `[CliOnly]`
-- `[McpOnly]`
-- `[ResultFormatter(typeof(...))]`
-- `[FromServices]`
+| Attribute | Applies To | Purpose |
+| --- | --- | --- |
+| `[Operation("operation.id")]` | Method, class | Declares the canonical operation id. Supports `Summary`, `Description`, and `Hidden`. |
+| `[CliCommand("group", "verb")]` | Method, class | Declares the CLI command path, for example `math add`. |
+| `[McpTool("tool_name")]` | Method, class | Declares the MCP tool name, for example `math_add`. |
+| `[CliOnly]` | Method, class | Exposes the operation only on the CLI surface. |
+| `[McpOnly]` | Method, class | Exposes the operation only on the MCP surface. |
+| `[ResultFormatter(typeof(...))]` | Method, class | Overrides default CLI text rendering with a custom formatter. |
+| `[Argument(position)]` | Parameter, request property | Binds a positional CLI argument. Supports `Name`, `Description`, and `Required`. |
+| `[Option("name")]` | Parameter, request property | Binds a named CLI option. Supports `Description` and `Required`. |
+| `[Alias(...)]` | Method, class, parameter, request property | Adds aliases for commands, options, arguments, or names. |
+| `[CliName("...")]` | Method, class, parameter, request property | Overrides the CLI-facing name only. |
+| `[McpName("...")]` | Method, class, parameter, request property | Overrides the MCP-facing name only. |
+| `[FromServices]` | Parameter | Resolves the value from DI instead of user input. |
+
+Common patterns:
+
+- Use `[Operation]` together with at least one surface attribute such as `[CliCommand]` or `[McpTool]`
+- Use `[Argument]` for ordered CLI inputs and `[Option]` for named CLI inputs
+- Use `[CliName]` and `[McpName]` when the same conceptual field should appear under different names on each surface
+- Use `[CliOnly]` or `[McpOnly]` when an operation should not be shared across both surfaces
+- Use `[FromServices]` for runtime services such as clocks, repositories, or application state
 
 Examples:
 
 - Rename an option for CLI only with `[CliName("person")]`
 - Rename an MCP argument with `[McpName("targetName")]`
+- Hide an internal operation from generated surfaces with `[Operation("internal.sync", Hidden = true)]`
 - Expose to only one surface with `[CliOnly]` or `[McpOnly]`
 
 ## CLI Usage
