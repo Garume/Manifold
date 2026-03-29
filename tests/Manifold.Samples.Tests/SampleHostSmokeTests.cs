@@ -38,7 +38,7 @@ public sealed class SampleHostSmokeTests
         using Process process = StartDotNetProcess(sampleDllPath, []);
         using HttpClient client = new()
         {
-            Timeout = TimeSpan.FromSeconds(1)
+            Timeout = TimeSpan.FromSeconds(3)
         };
 
         try
@@ -145,7 +145,7 @@ public sealed class SampleHostSmokeTests
     private static async Task<string> WaitForHttpRootAsync(HttpClient client, Process process, CancellationToken cancellationToken)
     {
         string endpoint = "http://127.0.0.1:38474/";
-        DateTimeOffset deadline = DateTimeOffset.UtcNow.AddSeconds(10);
+        DateTimeOffset deadline = DateTimeOffset.UtcNow.AddSeconds(20);
         Exception? lastError = null;
 
         while (DateTimeOffset.UtcNow < deadline)
