@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>Manifold.Generators.Tests</RootNamespace>
+    <AssemblyName>Manifold.Generators.Tests</AssemblyName>
+    <IsManifoldTestProject>true</IsManifoldTestProject>
+    <OutputType>Exe</OutputType>
+    <CoverageThreshold>90</CoverageThreshold>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0" />
+    <PackageReference Include="xunit.v3.mtp-v2" Version="3.2.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Manifold\Manifold.csproj" />
+    <ProjectReference Include="..\..\src\Manifold.Generators\Manifold.Generators.csproj"
+                      OutputItemType="Analyzer"
+                      ReferenceOutputAssembly="true"
+                      PrivateAssets="all" />
+  </ItemGroup>
+</Project>
+

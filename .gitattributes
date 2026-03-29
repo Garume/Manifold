@@ -1,0 +1,9 @@
+*.cs text eol=crlf
+*.csproj text eol=crlf
+*.props text eol=crlf
+*.targets text eol=crlf
+*.ps1 text eol=crlf
+*.slnx text eol=crlf
+*.md text eol=lf
+*.json text eol=lf
+

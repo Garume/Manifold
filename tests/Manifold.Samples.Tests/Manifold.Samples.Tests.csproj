@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>Manifold.Samples.Tests</RootNamespace>
+    <AssemblyName>Manifold.Samples.Tests</AssemblyName>
+    <IsManifoldTestProject>true</IsManifoldTestProject>
+    <OutputType>Exe</OutputType>
+    <CoverageThreshold>0</CoverageThreshold>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="xunit.v3.mtp-v2" Version="3.2.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+</Project>

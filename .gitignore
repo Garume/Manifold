@@ -1,0 +1,12 @@
+bin/
+obj/
+.artifacts/
+artifacts/
+TestResults/
+.idea/
+.vs/
+.tmp/
+.tmpinspect/
+.tools/
+.dotnet/
+BenchmarkDotNet.Artifacts/

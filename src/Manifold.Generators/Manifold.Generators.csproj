@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Manifold.Generators</RootNamespace>
+    <AssemblyName>Manifold.Generators</AssemblyName>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <IsRoslynComponent>true</IsRoslynComponent>
+    <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
+    <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+    <NoWarn>$(NoWarn);RS2008</NoWarn>
+    <PackageId>Manifold.Generators</PackageId>
+    <Description>Source generator that emits CLI and MCP descriptors and invokers for Manifold operations.</Description>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <Authors>Garume</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/Garume/Manifold</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Garume/Manifold</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <PackageTags>source-generator;analyzer;cli;mcp;dotnet;developer-tools</PackageTags>
+    <IncludeSymbols>false</IncludeSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_._"
+          Pack="true"
+          PackagePath="lib/netstandard2.0"
+          Visible="false" />
+    <None Include="$(OutputPath)$(AssemblyName).dll"
+          Pack="true"
+          PackagePath="analyzers/dotnet/cs"
+          Visible="false" />
+    <None Include="$(OutputPath)$(AssemblyName).pdb"
+          Pack="true"
+          PackagePath="analyzers/dotnet/cs"
+          Visible="false"
+          Condition="Exists('$(OutputPath)$(AssemblyName).pdb')" />
+  </ItemGroup>
+</Project>

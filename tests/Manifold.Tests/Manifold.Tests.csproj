@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>Manifold.Tests</RootNamespace>
+    <AssemblyName>Manifold.Tests</AssemblyName>
+    <IsManifoldTestProject>true</IsManifoldTestProject>
+    <OutputType>Exe</OutputType>
+    <CoverageThreshold>90</CoverageThreshold>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="xunit.v3.mtp-v2" Version="3.2.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Manifold\Manifold.csproj" />
+  </ItemGroup>
+</Project>
+

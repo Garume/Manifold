@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <AssemblyName>Manifold.Samples.McpHttpHost</AssemblyName>
+    <RootNamespace>Manifold.Samples.McpHttpHost</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Manifold.Samples.Operations\Manifold.Samples.Operations.csproj" />
+    <PackageReference Include="ModelContextProtocol.AspNetCore" Version="0.4.1-preview.1" />
+  </ItemGroup>
+</Project>

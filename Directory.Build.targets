@@ -1,0 +1,18 @@
+<Project>
+  <ItemGroup Condition="'$(IsPackable)' == 'true'">
+    <None Include="$(MSBuildThisFileDirectory)README.md"
+          Pack="true"
+          PackagePath=""
+          Visible="false" />
+    <None Include="$(MSBuildThisFileDirectory)LICENSE"
+          Pack="true"
+          PackagePath=""
+          Visible="false" />
+  </ItemGroup>
+
+  <Target Name="FailIfCoverageThresholdMissing"
+          BeforeTargets="Test"
+          Condition="'$(IsManifoldTestProject)' == 'true' and '$(CoverageThreshold)' == ''">
+    <Error Text="CoverageThreshold must be set for all test projects." />
+  </Target>
+</Project>

@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>Manifold</RootNamespace>
+    <AssemblyName>Manifold</AssemblyName>
+    <PackageId>Manifold</PackageId>
+    <Description>Core operation contracts, descriptors, and binding primitives for Manifold.</Description>
+    <Authors>Garume</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/Garume/Manifold</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Garume/Manifold</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <PackageTags>cli;mcp;source-generator;dotnet;developer-tools</PackageTags>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+</Project>
+

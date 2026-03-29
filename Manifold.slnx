@@ -1,0 +1,21 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Manifold/Manifold.csproj" />
+    <Project Path="src/Manifold.Cli/Manifold.Cli.csproj" />
+    <Project Path="src/Manifold.Generators/Manifold.Generators.csproj" />
+    <Project Path="src/Manifold.Mcp/Manifold.Mcp.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Manifold.Tests/Manifold.Tests.csproj" />
+    <Project Path="tests/Manifold.Cli.Tests/Manifold.Cli.Tests.csproj" />
+    <Project Path="tests/Manifold.Generators.Tests/Manifold.Generators.Tests.csproj" />
+    <Project Path="tests/Manifold.Mcp.Tests/Manifold.Mcp.Tests.csproj" />
+    <Project Path="tests/Manifold.Samples.Tests/Manifold.Samples.Tests.csproj" />
+  </Folder>
+  <Folder Name="/samples/">
+    <Project Path="samples/Manifold.Samples.Operations/Manifold.Samples.Operations.csproj" />
+    <Project Path="samples/Manifold.Samples.CliHost/Manifold.Samples.CliHost.csproj" />
+    <Project Path="samples/Manifold.Samples.McpStdioHost/Manifold.Samples.McpStdioHost.csproj" />
+    <Project Path="samples/Manifold.Samples.McpHttpHost/Manifold.Samples.McpHttpHost.csproj" />
+  </Folder>
+</Solution>

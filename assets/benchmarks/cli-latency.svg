@@ -1,0 +1,64 @@
+<svg width="980" height="560" viewBox="0 0 980 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="980" height="560" rx="28" fill="#F8FAFC"/>
+  <rect x="1" y="1" width="978" height="558" rx="27" stroke="#E2E8F0"/>
+
+  <text x="40" y="58" fill="#0F172A" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700">CLI benchmark snapshot</text>
+  <text x="40" y="88" fill="#475569" font-family="Segoe UI, Arial, sans-serif" font-size="15">Latency only. Lower is better. The x-axis uses a log scale so System.CommandLine stays visible.</text>
+
+  <text x="40" y="142" fill="#0F172A" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">Positional command</text>
+  <text x="40" y="332" fill="#0F172A" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">Option-heavy command</text>
+
+  <g stroke="#CBD5E1" stroke-width="1">
+    <line x1="250" y1="160" x2="250" y2="290"/>
+    <line x1="415" y1="160" x2="415" y2="290"/>
+    <line x1="580" y1="160" x2="580" y2="290"/>
+    <line x1="745" y1="160" x2="745" y2="290"/>
+    <line x1="910" y1="160" x2="910" y2="290"/>
+
+    <line x1="250" y1="350" x2="250" y2="480"/>
+    <line x1="415" y1="350" x2="415" y2="480"/>
+    <line x1="580" y1="350" x2="580" y2="480"/>
+    <line x1="745" y1="350" x2="745" y2="480"/>
+    <line x1="910" y1="350" x2="910" y2="480"/>
+  </g>
+
+  <g fill="#64748B" font-family="Segoe UI, Arial, sans-serif" font-size="12">
+    <text x="250" y="152" text-anchor="middle">1 ns</text>
+    <text x="415" y="152" text-anchor="middle">10 ns</text>
+    <text x="580" y="152" text-anchor="middle">100 ns</text>
+    <text x="745" y="152" text-anchor="middle">1 us</text>
+    <text x="910" y="152" text-anchor="middle">10 us</text>
+
+    <text x="250" y="342" text-anchor="middle">1 ns</text>
+    <text x="415" y="342" text-anchor="middle">10 ns</text>
+    <text x="580" y="342" text-anchor="middle">100 ns</text>
+    <text x="745" y="342" text-anchor="middle">1 us</text>
+    <text x="910" y="342" text-anchor="middle">10 us</text>
+  </g>
+
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="14">
+    <text x="40" y="202" fill="#0F172A" font-weight="600">Manifold</text>
+    <rect x="250" y="182" width="224" height="24" rx="12" fill="#213A5A"/>
+    <text x="940" y="199" fill="#0F172A" text-anchor="end">22.61 ns · 0 B</text>
+
+    <text x="40" y="242" fill="#0F172A" font-weight="600">ConsoleAppFramework</text>
+    <rect x="250" y="222" width="235" height="24" rx="12" fill="#4F83CC"/>
+    <text x="940" y="239" fill="#0F172A" text-anchor="end">26.57 ns · 0 B</text>
+
+    <text x="40" y="282" fill="#0F172A" font-weight="600">System.CommandLine</text>
+    <rect x="250" y="262" width="534" height="24" rx="12" fill="#C2410C"/>
+    <text x="940" y="279" fill="#0F172A" text-anchor="end">1730.82 ns · 4688 B</text>
+
+    <text x="40" y="392" fill="#0F172A" font-weight="600">Manifold</text>
+    <rect x="250" y="372" width="241" height="24" rx="12" fill="#213A5A"/>
+    <text x="940" y="389" fill="#0F172A" text-anchor="end">28.89 ns · 0 B</text>
+
+    <text x="40" y="432" fill="#0F172A" font-weight="600">ConsoleAppFramework</text>
+    <rect x="250" y="412" width="230" height="24" rx="12" fill="#4F83CC"/>
+    <text x="940" y="429" fill="#0F172A" text-anchor="end">24.76 ns · 0 B</text>
+
+    <text x="40" y="472" fill="#0F172A" font-weight="600">System.CommandLine</text>
+    <rect x="250" y="452" width="549" height="24" rx="12" fill="#C2410C"/>
+    <text x="940" y="469" fill="#0F172A" text-anchor="end">2110.84 ns · 5632 B</text>
+  </g>
+</svg>

@@ -1,0 +1,72 @@
+<svg width="980" height="600" viewBox="0 0 980 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="980" height="600" rx="28" fill="#F8FAFC"/>
+  <rect x="1" y="1" width="978" height="598" rx="27" stroke="#E2E8F0"/>
+
+  <text x="40" y="58" fill="#0F172A" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700">MCP roundtrip-shaped benchmark snapshot</text>
+  <text x="40" y="88" fill="#475569" font-family="Segoe UI, Arial, sans-serif" font-size="15">Lower is better. These numbers cover in-memory response construction for tools/list and tools/call.</text>
+
+  <text x="40" y="142" fill="#0F172A" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">tools/list response</text>
+  <text x="40" y="372" fill="#0F172A" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">tools/call response</text>
+
+  <g stroke="#CBD5E1" stroke-width="1">
+    <line x1="250" y1="160" x2="250" y2="320"/>
+    <line x1="405" y1="160" x2="405" y2="320"/>
+    <line x1="560" y1="160" x2="560" y2="320"/>
+    <line x1="715" y1="160" x2="715" y2="320"/>
+    <line x1="870" y1="160" x2="870" y2="320"/>
+
+    <line x1="250" y1="390" x2="250" y2="550"/>
+    <line x1="405" y1="390" x2="405" y2="550"/>
+    <line x1="560" y1="390" x2="560" y2="550"/>
+    <line x1="715" y1="390" x2="715" y2="550"/>
+    <line x1="870" y1="390" x2="870" y2="550"/>
+  </g>
+
+  <g fill="#64748B" font-family="Segoe UI, Arial, sans-serif" font-size="12">
+    <text x="250" y="152" text-anchor="middle">0 ns</text>
+    <text x="405" y="152" text-anchor="middle">225 ns</text>
+    <text x="560" y="152" text-anchor="middle">450 ns</text>
+    <text x="715" y="152" text-anchor="middle">675 ns</text>
+    <text x="870" y="152" text-anchor="middle">900 ns</text>
+
+    <text x="250" y="382" text-anchor="middle">0 ns</text>
+    <text x="405" y="382" text-anchor="middle">225 ns</text>
+    <text x="560" y="382" text-anchor="middle">450 ns</text>
+    <text x="715" y="382" text-anchor="middle">675 ns</text>
+    <text x="870" y="382" text-anchor="middle">900 ns</text>
+  </g>
+
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="14">
+    <text x="40" y="202" fill="#0F172A" font-weight="600">Manifold</text>
+    <rect x="250" y="182" width="521" height="24" rx="12" fill="#213A5A"/>
+    <text x="940" y="199" fill="#0F172A" text-anchor="end">756.3 ns · 0 B</text>
+
+    <text x="40" y="242" fill="#0F172A" font-weight="600">ModelContextProtocol</text>
+    <rect x="250" y="222" width="520" height="24" rx="12" fill="#64748B"/>
+    <text x="940" y="239" fill="#0F172A" text-anchor="end">754.6 ns · 0 B</text>
+
+    <text x="40" y="282" fill="#0F172A" font-weight="600">McpToolkit</text>
+    <rect x="250" y="262" width="438" height="24" rx="12" fill="#0F766E"/>
+    <text x="940" y="279" fill="#0F172A" text-anchor="end">635.4 ns · 0 B</text>
+
+    <text x="40" y="322" fill="#0F172A" font-weight="600">McpDotNet</text>
+    <rect x="250" y="302" width="562" height="24" rx="12" fill="#7C3AED"/>
+    <text x="940" y="319" fill="#0F172A" text-anchor="end">816.2 ns · 0 B</text>
+
+    <text x="40" y="432" fill="#0F172A" font-weight="600">Manifold</text>
+    <rect x="250" y="412" width="32" height="24" rx="12" fill="#213A5A"/>
+    <text x="940" y="429" fill="#0F172A" text-anchor="end">47.16 ns · 0 B</text>
+
+    <text x="40" y="472" fill="#0F172A" font-weight="600">ModelContextProtocol</text>
+    <rect x="250" y="452" width="47" height="24" rx="12" fill="#64748B"/>
+    <text x="940" y="469" fill="#0F172A" text-anchor="end">68.56 ns · 0 B</text>
+
+    <text x="40" y="512" fill="#0F172A" font-weight="600">McpToolkit</text>
+    <rect x="250" y="492" width="101" height="24" rx="12" fill="#0F766E"/>
+    <text x="940" y="509" fill="#0F172A" text-anchor="end">146.34 ns · 96 B</text>
+
+    <text x="40" y="552" fill="#0F172A" font-weight="600">McpDotNet</text>
+    <rect x="250" y="532" width="64" height="24" rx="12" fill="#7C3AED"/>
+    <text x="940" y="549" fill="#0F172A" text-anchor="end">93.20 ns · 256 B</text>
+  </g>
+</svg>

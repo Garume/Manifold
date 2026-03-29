@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Manifold.Samples.Operations</AssemblyName>
+    <RootNamespace>Manifold.Samples.Operations</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Manifold\Manifold.csproj" />
+    <ProjectReference Include="..\..\src\Manifold.Cli\Manifold.Cli.csproj" />
+    <ProjectReference Include="..\..\src\Manifold.Mcp\Manifold.Mcp.csproj" />
+    <ProjectReference Include="..\..\src\Manifold.Generators\Manifold.Generators.csproj"
+                      OutputItemType="Analyzer"
+                      ReferenceOutputAssembly="false" />
+  </ItemGroup>
+</Project>

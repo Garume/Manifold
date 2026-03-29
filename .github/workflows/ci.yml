@@ -1,0 +1,23 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  quality-and-test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+          cache: true
+          cache-dependency-path: |
+            **/packages.lock.json
+      - name: Quality
+        shell: pwsh
+        run: ./build/quality.ps1
+      - name: Pack
+        shell: pwsh
+        run: ./build/pack.ps1 -NoRestore

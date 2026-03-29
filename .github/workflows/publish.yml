@@ -1,0 +1,100 @@
+name: publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Package version to publish, for example 1.0.0
+        required: true
+        type: string
+
+jobs:
+  publish-nuget:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+          cache: true
+          cache-dependency-path: |
+            **/packages.lock.json
+
+      - name: Resolve package version
+        shell: pwsh
+        run: |
+          $packageVersion = "${{ github.event.inputs.version }}"
+          if ([string]::IsNullOrWhiteSpace($packageVersion)) {
+            $packageVersion = "${{ github.ref_name }}"
+          }
+
+          if ($packageVersion.StartsWith('v')) {
+            $packageVersion = $packageVersion.Substring(1)
+          }
+
+          if ([string]::IsNullOrWhiteSpace($packageVersion)) {
+            throw 'Unable to determine package version.'
+          }
+
+          "PACKAGE_VERSION=$packageVersion" >> $env:GITHUB_ENV
+
+      - name: Quality
+        shell: pwsh
+        run: ./build/quality.ps1
+
+      - name: Pack
+        shell: pwsh
+        run: ./build/pack.ps1 -NoRestore -PackageVersion $env:PACKAGE_VERSION
+
+      - name: NuGet login
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: ${{ vars.NUGET_USER != '' && vars.NUGET_USER || github.repository_owner }}
+
+      - name: Publish packages
+        shell: pwsh
+        run: |
+          $packages = Get-ChildItem .\.artifacts\packages\*.nupkg |
+            Where-Object { $_.Name -notlike '*.snupkg' } |
+            Sort-Object Name
+
+          if ($packages.Count -eq 0) {
+            throw 'No NuGet packages were produced.'
+          }
+
+          foreach ($package in $packages) {
+            dotnet nuget push $package.FullName `
+              --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" `
+              --source https://api.nuget.org/v3/index.json `
+              --skip-duplicate
+          }
+
+      - name: Create GitHub release
+        if: github.event_name == 'push'
+        shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          $tag = "${{ github.ref_name }}"
+          $assets = Get-ChildItem .\.artifacts\packages\*.nupkg |
+            Where-Object { $_.Name -notlike '*.snupkg' } |
+            Sort-Object Name |
+            ForEach-Object { $_.FullName }
+
+          if ($assets.Count -eq 0) {
+            throw 'No package assets were produced.'
+          }
+
+          gh release create $tag `
+            --repo "${{ github.repository }}" `
+            --title $tag `
+            --generate-notes `
+            $assets

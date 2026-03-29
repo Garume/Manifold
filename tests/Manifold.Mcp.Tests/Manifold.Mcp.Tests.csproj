@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>Manifold.Mcp.Tests</RootNamespace>
+    <AssemblyName>Manifold.Mcp.Tests</AssemblyName>
+    <IsManifoldTestProject>true</IsManifoldTestProject>
+    <OutputType>Exe</OutputType>
+    <CoverageThreshold>90</CoverageThreshold>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
+    <PackageReference Include="xunit.v3.mtp-v2" Version="3.2.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Manifold\Manifold.csproj" />
+    <ProjectReference Include="..\..\src\Manifold.Mcp\Manifold.Mcp.csproj" />
+    <ProjectReference Include="..\..\src\Manifold.Generators\Manifold.Generators.csproj"
+                      OutputItemType="Analyzer"
+                      ReferenceOutputAssembly="false" />
+  </ItemGroup>
+</Project>
+

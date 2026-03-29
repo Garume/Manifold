@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Manifold.Samples.CliHost</AssemblyName>
+    <RootNamespace>Manifold.Samples.CliHost</RootNamespace>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Manifold.Cli\Manifold.Cli.csproj" />
+    <ProjectReference Include="..\Manifold.Samples.Operations\Manifold.Samples.Operations.csproj" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
+  </ItemGroup>
+</Project>
