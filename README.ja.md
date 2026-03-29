@@ -50,18 +50,40 @@ operation の書き方は大きく 2 通りあります。
 
 ## 導入
 
-必要な surface だけ追加してください。
+通常は 4 package すべてを入れる必要はありません。
+
+基本は `Manifold` と `Manifold.Generators` を入れて、必要な surface だけ追加します。
+
+よくある組み合わせ:
+
+| Scenario | Packages |
+| --- | --- |
+| operation 定義だけ使う | `Manifold`, `Manifold.Generators` |
+| CLI アプリを作る | `Manifold`, `Manifold.Generators`, `Manifold.Cli` |
+| MCP host を作る | `Manifold`, `Manifold.Generators`, `Manifold.Mcp` |
+| CLI と MCP の両方を使う | `Manifold`, `Manifold.Generators`, `Manifold.Cli`, `Manifold.Mcp` |
+
+CLI host の例:
 
 ```xml
 <ItemGroup>
   <PackageReference Include="Manifold" Version="1.0.0" />
   <PackageReference Include="Manifold.Generators" Version="1.0.0" PrivateAssets="all" />
   <PackageReference Include="Manifold.Cli" Version="1.0.0" />
+</ItemGroup>
+```
+
+MCP host の例:
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Manifold" Version="1.0.0" />
+  <PackageReference Include="Manifold.Generators" Version="1.0.0" PrivateAssets="all" />
   <PackageReference Include="Manifold.Mcp" Version="1.0.0" />
 </ItemGroup>
 ```
 
-CLI だけなら `Manifold.Mcp` は不要です。MCP だけなら `Manifold.Cli` は不要です。
+両方使う場合は、この 2 つを組み合わせれば十分です。
 
 ## Operation の定義
 

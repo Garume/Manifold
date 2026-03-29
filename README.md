@@ -50,18 +50,40 @@ You compose those generated types into your own application.
 
 ## Install
 
-Pick the surfaces you need.
+Most consumers should not install all four packages.
+
+Start with the core package and the generator, then add only the surfaces you actually use.
+
+Typical combinations:
+
+| Scenario | Packages |
+| --- | --- |
+| Define operations only | `Manifold`, `Manifold.Generators` |
+| CLI app | `Manifold`, `Manifold.Generators`, `Manifold.Cli` |
+| MCP host | `Manifold`, `Manifold.Generators`, `Manifold.Mcp` |
+| Both CLI and MCP | `Manifold`, `Manifold.Generators`, `Manifold.Cli`, `Manifold.Mcp` |
+
+CLI host:
 
 ```xml
 <ItemGroup>
   <PackageReference Include="Manifold" Version="1.0.0" />
   <PackageReference Include="Manifold.Generators" Version="1.0.0" PrivateAssets="all" />
   <PackageReference Include="Manifold.Cli" Version="1.0.0" />
+</ItemGroup>
+```
+
+MCP host:
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Manifold" Version="1.0.0" />
+  <PackageReference Include="Manifold.Generators" Version="1.0.0" PrivateAssets="all" />
   <PackageReference Include="Manifold.Mcp" Version="1.0.0" />
 </ItemGroup>
 ```
 
-If you only need CLI, omit `Manifold.Mcp`. If you only need MCP, omit `Manifold.Cli`.
+If you need both surfaces, combine the two examples.
 
 ## Authoring Operations
 
